@@ -130,8 +130,16 @@ input{
     border: white 1px solid;
 }
 
+
 @media only screen and (max-width: 768px) {
     #main {
       background-color: lightblue;
+      height: 600vh;
     }
-  }
+    #side_frame{
+        height: 5%;
+    }
+    #top_frame{
+        height: 5%;
+    }
+}
