@@ -133,7 +133,7 @@ input{
 
 @media only screen and (max-width: 768px) {
     #main {
-      background-color: lightblue;
+
       height: 600vh;
     }
     #side_frame{
