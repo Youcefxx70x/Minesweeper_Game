@@ -10,6 +10,8 @@ class Cell{
     static cols=0
     static cells_left=0
     static mines_left=0
+    static device="big"
+    static click_event='contextmenu'
     
 
 
@@ -27,7 +29,7 @@ class Cell{
     create_btn_object(location){
         this.cell_btn_object=document.createElement('button')
         this.cell_btn_object.addEventListener('click',(event) => this.l_click_act(event))
-        this.cell_btn_object.addEventListener('contextmenu',(event) => this.r_click_act(event))
+        this.cell_btn_object.addEventListener(Cell.click_event,(event) => this.r_click_act(event))
         this.cell_btn_object.setAttribute("class","game_button")
         //this.cell_btn_object.innerHTML=`(${this.x},${this.y})`
         location.appendChild(this.cell_btn_object)
@@ -342,6 +344,11 @@ class Cell{
             }
         }
     }
+
+    /*static change_set(){
+        Cell.device="small"
+        Cell.click_event="dblclick"
+    }*/
 
 
 
