@@ -44,6 +44,11 @@
         let btnE=document.getElementById("btnE")
         let btnP=document.getElementById("btnP")
         let grid_value=6
+        var w = window.innerWidth;
+        let can_play_hard=true;
+        if(w<=768){
+            can_play_hard=false;
+        }
 
         function input_val(){
             switch(grid_value) {
@@ -74,7 +79,10 @@
 
         btnP.addEventListener("click",()=>{
             let value=grid_value
-            if(value<48){
+            if(can_play_hard && value<48){
+                value=value*2
+            }
+            else if(!can_play_hard && value<24){
                 value=value*2
             }
             
@@ -92,9 +100,14 @@
             flex_ctr.style.display="flex"
             let grid_size=Number(grid_value)
             let gid_text=""
-            for (let i=0; i<grid_size;i++){
-                gid_text+="auto "
+            if(w<=768){
+                for (let i=0; i<6;i++){
+                gid_text+="auto "}
             }
+            else{
+                for (let i=0; i<grid_size;i++){
+                gid_text+="auto "
+            }}
             container.style.gridTemplateColumns =gid_text;
             Cell.grid_size_assignment(grid_size)
             for(let i=0 ;i<grid_size;i++){
