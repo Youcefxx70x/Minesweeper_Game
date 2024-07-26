@@ -17,6 +17,7 @@
         <div id="flex_ctr">
             <div id="side_frame">
                 <div id="cells_count"></div>
+                <div id="time_count"></div>
                 <div id="mines_count"></div>
             </div>
             <div id="center_frame"></div>
@@ -35,7 +36,7 @@
         const side_widget=document.getElementById("side_frame")
         const cell_count_widget=document.getElementById("cells_count")
         const mines_count_widget=document.getElementById("mines_count")
-
+        const time_count_widget=document.getElementById("time_count")
 
         let opt_con=document.getElementById("game_options")
         let flex_ctr=document.getElementById("flex_ctr")
@@ -46,6 +47,10 @@
         let grid_value=6
         let w = window.innerWidth;
         let can_play_hard=true;
+        let seconds=0
+        let intervalId;
+
+
         if(w<=768){
             can_play_hard=false;
         }
@@ -93,9 +98,11 @@
          
         
 
-
+  
+        
         
         btnE.addEventListener('click',()=>{
+            
             opt_con.style.display="none"
             flex_ctr.style.display="flex"
             let grid_size=Number(grid_value)
@@ -127,13 +134,22 @@
             Cell.create_cell_count_label(cell_count_widget,mines_count_widget)
             Cell.randomize_mines()
             //Cell.cells_checker()
+            if (!intervalId) {
+               
+                intervalId = setInterval(()=>{
+                    seconds++
+                    time_count_widget.innerHTML=`Time: ${seconds}s`
+                }, 1000);
+            }
+
+
             
 
 
 
         })
-        
 
+      
     
     
     </script>
