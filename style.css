@@ -131,7 +131,7 @@ input{
 }
 
 @media only screen and (max-width: 768px) {
-    body {
+    #main {
       background-color: lightblue;
     }
   }
