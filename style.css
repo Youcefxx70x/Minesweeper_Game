@@ -130,6 +130,9 @@ input{
     border: white 1px solid;
 }
 
+#time_count{
+    color:white;
+}
 
 @media only screen and (max-width: 768px) {
     #main {
