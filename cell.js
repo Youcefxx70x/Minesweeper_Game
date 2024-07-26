@@ -12,6 +12,8 @@ class Cell{
     static mines_left=0
     static device="big"
     static click_event='contextmenu'
+    static intervalId
+    static seconds=0
     
 
 
@@ -24,6 +26,15 @@ class Cell{
         this.number=0
         this.cell_surroundigs=[]
         Cell.cells.push(this)
+
+        if (!Cell.intervalId) {
+               
+            Cell.intervalId = setInterval(()=>{
+                Cell.seconds++
+                time_count_widget.innerHTML=`Time: ${Cell.seconds}s`
+            }, 1000);
+        }
+
     }
 
     create_btn_object(location){
@@ -117,6 +128,10 @@ class Cell{
       div.innerHTML="you have sadly lost"
       div.style.color="red"
       div.appendChild(Cell.new_game_button())
+      if (Cell.intervalId) {
+        clearInterval(Cell.intervalId);
+        Cell.intervalId = null;
+        }
       
     }
       
