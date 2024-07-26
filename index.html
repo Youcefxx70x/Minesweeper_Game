@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MinesWeeper</title>
+    <title>Document</title>
     <script src="cell.js"></script>
     <script src="fold2.js"></script>
     <link rel="stylesheet" href="style.css">
@@ -44,7 +44,7 @@
         let btnE=document.getElementById("btnE")
         let btnP=document.getElementById("btnP")
         let grid_value=6
-        var w = window.innerWidth;
+        let w = window.innerWidth;
         let can_play_hard=true;
         if(w<=768){
             can_play_hard=false;
@@ -82,7 +82,7 @@
             if(can_play_hard && value<48){
                 value=value*2
             }
-            else if(!can_play_hard && value<24){
+            else if(!can_play_hard && value<12){
                 value=value*2
             }
             
@@ -100,16 +100,24 @@
             flex_ctr.style.display="flex"
             let grid_size=Number(grid_value)
             let gid_text=""
-            if(w<=768){
+            /*if(w<=768){
                 for (let i=0; i<6;i++){
                 gid_text+="auto "}
             }
             else{
                 for (let i=0; i<grid_size;i++){
                 gid_text+="auto "
-            }}
+            }}*/
+            for (let i=0; i<grid_size;i++){
+                gid_text+="auto "
+            }
             container.style.gridTemplateColumns =gid_text;
             Cell.grid_size_assignment(grid_size)
+            /*if(w<=768){
+                alert(w)
+                Cell.change_set()
+            }*/
+            
             for(let i=0 ;i<grid_size;i++){
                 for (let j=0 ;j<grid_size;j++){
                     let cell=new Cell(i,j)
