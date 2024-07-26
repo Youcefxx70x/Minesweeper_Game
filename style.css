@@ -134,12 +134,12 @@ input{
 @media only screen and (max-width: 768px) {
     #main {
 
-      height: 600vh;
+      height: 200vh;
     }
     #side_frame{
         height: 5%;
     }
     #top_frame{
-        height: 5%;
+        height: 10%;
     }
 }
