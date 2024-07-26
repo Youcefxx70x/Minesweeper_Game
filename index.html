@@ -134,14 +134,7 @@
             Cell.create_cell_count_label(cell_count_widget,mines_count_widget)
             Cell.randomize_mines()
             //Cell.cells_checker()
-            if (!intervalId) {
-               
-                intervalId = setInterval(()=>{
-                    seconds++
-                    time_count_widget.innerHTML=`Time: ${seconds}s`
-                }, 1000);
-            }
-
+           
 
             
 
